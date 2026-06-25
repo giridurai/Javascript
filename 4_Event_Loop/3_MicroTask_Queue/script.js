@@ -1,14 +1,14 @@
-console.log("Start");
+// console.log("Start");
 
-setTimeout(()=>{
-    console.log("CallBack");
-}, 5000)
+// setTimeout(()=>{
+//     console.log("CallBack");
+// }, 5000)
 
-fetch("https://www.tryclosets.com/")
-.then(function cb(){
-    console.log("CallBack Google")
-});
-console.log("End");
+// fetch("https://www.tryclosets.com/")
+// .then(function cb(){
+//     console.log("CallBack Google")
+// });
+// console.log("End");
 
 
 // First it will move print Start
@@ -20,3 +20,17 @@ console.log("End");
 // Finally, Here Event Loop will be waked and checking the microtask queue is empty or not.
 // If it is Empty it will run the Callback Queues
 // If no it will first run the Microtask Queue then Call Back Queues.
+
+console.log("Start");
+
+setTimeout(() => console.log("T1"), 0);
+
+Promise.resolve()
+  .then(() => console.log("P1"));
+
+Promise.resolve()
+  .then(() => console.log("P2"));
+
+setTimeout(() => console.log("T2"), 0);
+
+console.log("End");
